@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="53" total="54" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-06-07T10:00:26 IST" name="Default suite" finished-at="2024-06-07T10:04:40 IST" duration-ms="253870">
+    <groups>
+    </groups>
+    <test started-at="2024-06-07T10:00:26 IST" name="Default test" finished-at="2024-06-07T10:04:40 IST" duration-ms="253870">
+      <class name="TestCase.TestCases_Prudhvi">
+        <test-method is-config="true" signature="Start()[pri:0, instance:TestCase.TestCases_Prudhvi@6302bbb1]" started-at="2024-06-07T10:00:26 IST" name="Start" finished-at="2024-06-07T10:01:23 IST" duration-ms="56758" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Start -->
+        <test-method signature="AdvancedFieldsCompanyProfile()[pri:51, instance:TestCase.TestCases_Prudhvi@6302bbb1]" started-at="2024-06-07T10:01:23 IST" name="AdvancedFieldsCompanyProfile" finished-at="2024-06-07T10:04:40 IST" duration-ms="197073" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AdvancedFieldsCompanyProfile -->
+      </class> <!-- TestCase.TestCases_Prudhvi -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
