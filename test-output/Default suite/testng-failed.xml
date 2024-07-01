@@ -5,8 +5,8 @@
     <classes>
       <class name="TestCase.TestCases_Prudhvi">
         <methods>
-          <include name="EntityMappingIndividualEntityUpdateAfterDocumentCompletionFromSettings"/>
           <include name="Start"/>
+          <include name="entityMappingUpdateWithParentIndividualEntity"/>
         </methods>
       </class> <!-- TestCase.TestCases_Prudhvi -->
     </classes>

@@ -2,6 +2,10 @@ package TestCase;
 
 import java.util.UUID;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -56,14 +60,14 @@ public class TestCases_Prudhvi extends testCaseBase {
 		login.SigninNSUI();
 		login.VerifyLoginSucess();
 	}
-	
+
 //	 3a,Blank Doc – Sender signer & Receiver signer (With enforcement)send document with uploading blank doc for Sender & Receiver (Complete through login from
 //	 sender & Complete through from mail receiver)
 	@Test(priority = 1)
 	public void BlankDocWithEnforcement() throws Exception {
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		documentsScenarios.autofilloff();
+//		documentsScenarios.autofilloff();
 		documentsScenarios.DocScenario();
 		documentsScenarios.Blankloginaccount(doc);
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
@@ -250,7 +254,7 @@ public class TestCases_Prudhvi extends testCaseBase {
 
 	@Test(priority = 10)
 	public void uploadjpg() throws Exception {
-		String jpgfile = System.getProperty("user.dir") +"/src/test/resources/jpg.jpg";
+		String jpgfile = System.getProperty("user.dir") + "/src/test/resources/jpg.jpg";
 		documentsScenarios.DocScenario();
 		documentsScenarios.uploadFileWithSendKeys(jpgfile);
 		documentsScenarios.nextButton();
@@ -382,27 +386,28 @@ public class TestCases_Prudhvi extends testCaseBase {
 		documentsScenarios.nextButton();
 		documentsScenarios.VerifyFileUploadSucess();
 	}
-//	@Test//hold
-//	public void ValidDocScenarios() throws Exception {
-//		String a=" DocScenarios sta... ";
+
+	@Test
+	public void ValidDocScenarios() throws Exception {
+		String a = "DocScenarios";
 //		documentsScenarios.autofilloff();
-//		documentsScenarios.DocScenario();
-//		documentsScenarios.Blankloginaccount(a);
-//		documentsScenarios.RecipientSigner(1,"jeevithapatnana200@outlook.com"," SIGNER ");
-//		documentsScenarios.Saveuser();
-//		documentsScenarios.SignatureAndFullNameFeilds();
-//		documentsScenarios.documentsScenarios.DradAndDropSigAndFullName(2,10,-20,10,10);
-//		documentsScenarios.SubDocScenarios(a);
-//		documentsScenarios.clickSubmit();
-//		documentsScenarios.Verifysubmit();
-//		documentsScenarios.Viewdocument();
-//		documentsScenarios.Blankwithoutsenderautofill();
-//		documentsScenarios.nsui();
-//		documentsScenarios.clickLogout();
-//		documentsScenarios.SigninNSUIJeevitha();
-//		documentsScenarios.loginAccountDocumentClick();
-//		recevierSide.signloginAccount();
-//	}
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(a);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.SignatureAndFullNameFeilds();
+		documentsScenarios.DradAndDropSigAndFullName(2, 10, -20, 10, 10);
+		documentsScenarios.SubDocScenarios(a);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		documentsScenarios.Viewdocument();
+		documentsScenarios.Blankwithoutsenderautofill();
+		documentsScenarios.nsui();
+		documentsScenarios.clickLogout();
+		documentsScenarios.SigninNSUIJeevitha();
+		documentsScenarios.loginAccountDocumentClick();
+		recevierSide.signloginAccount();
+	}
 
 //	// OneDrive-signerand CC WithOut
 //	// EnforceSignatureOrderWithSenderAutofill-receiver Email Login
@@ -410,7 +415,7 @@ public class TestCases_Prudhvi extends testCaseBase {
 	public void ValidDocscenarioOnedrive() throws Exception {
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		documentsScenarios.autofilloff();
+//		documentsScenarios.autofilloff();
 		documentsScenarios.DocScenario();
 		documentsScenarios.DocscenarioOnedrive();
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
@@ -551,7 +556,7 @@ public class TestCases_Prudhvi extends testCaseBase {
 	public void ValidOneDriveDocMultipleSigners() throws Exception {
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		documentsScenarios.autofilloff();
+//		documentsScenarios.autofilloff();
 		documentsScenarios.DocScenario();
 		documentsScenarios.DocscenarioOnedrive();
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
@@ -695,7 +700,7 @@ public class TestCases_Prudhvi extends testCaseBase {
 	public void ValidSignerndApproverOnedrive() throws Exception {
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		documentsScenarios.autofilloff();
+//		documentsScenarios.autofilloff();
 		documentsScenarios.DocScenario();
 		documentsScenarios.DocscenarioOnedrive();
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
@@ -971,36 +976,35 @@ public class TestCases_Prudhvi extends testCaseBase {
 	public void validBlankDocRearrangeorderCCSignerApprover() throws Exception {
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		documentsScenarios.autofilloff();
+//		documentsScenarios.autofilloff();
 		documentsScenarios.DocScenario();
 		documentsScenarios.Blankloginaccount(doc);
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
 		documentsScenarios.Recipient(2, "Receiver", "ramyasibbala200@outlook.com", " APPROVER ");
 		documentsScenarios.Recipient(3, "Receiver", "prudhvib200@outlook.com", "CC");
-		documentsScenarios.Rearranges(2, 1);
-		documentsScenarios.Rearranges(3, 2);
-		documentsScenarios.Signorder();
-		documentsScenarios.Saveuser();
-		documentsScenarios.SignatureAndFullNameFeilds();
-		documentsScenarios.DradAndDropSigAndFullName(3, 10, 60, 10, 90);
-		documentsScenarios.DradAndDropSigAndFullName(4, 10, 130, 10, 160);
-		documentsScenarios.SubDocScenarios(doc);
-		documentsScenarios.clickSubmit();
-		documentsScenarios.Verifysubmit();
-		documentsScenarios.Viewdocument();
-		documentsScenarios.Blankwithoutsenderautofill();
-		recevierSide.jeevithaOutlooklogin();
-		recevierSide.clickEmail(doc);
-		recevierSide.reviewandSign("Review & sign");
-		recevierSide.signaturefill();
-		recevierSide.clickFinish();
-		recevierSide.Outlooklogin("ramyasibbala200@outlook.com", "Meghana@123");
-		recevierSide.clickEmail(doc);
-		recevierSide.reviewandSign("Review & Approve");
-		recevierSide.signaturefill();
-		recevierSide.clickApprove();
-		recevierSide.Outlooklogin("prudhvib200@outlook.com", "Meghana@123");
-		recevierSide.validateAtCC(doc);
+		documentsScenarios.Rearranges(3, 1);
+//		documentsScenarios.Signorder();
+//		documentsScenarios.Saveuser();
+//		documentsScenarios.SignatureAndFullNameFeilds();
+//		documentsScenarios.DradAndDropSigAndFullName(3, 10, 60, 10, 90);
+//		documentsScenarios.DradAndDropSigAndFullName(4, 10, 130, 10, 160);
+//		documentsScenarios.SubDocScenarios(doc);
+//		documentsScenarios.clickSubmit();
+//		documentsScenarios.Verifysubmit();
+//		documentsScenarios.Viewdocument();
+//		documentsScenarios.Blankwithoutsenderautofill();
+//		recevierSide.jeevithaOutlooklogin();
+//		recevierSide.clickEmail(doc);
+//		recevierSide.reviewandSign("Review & sign");
+//		recevierSide.signaturefill();
+//		recevierSide.clickFinish();
+//		recevierSide.Outlooklogin("ramyasibbala200@outlook.com", "Meghana@123");
+//		recevierSide.clickEmail(doc);
+//		recevierSide.reviewandSign("Review & Approve");
+//		recevierSide.signaturefill();
+//		recevierSide.clickApprove();
+//		recevierSide.Outlooklogin("prudhvib200@outlook.com", "Meghana@123");
+//		recevierSide.validateAtCC(doc);
 
 	}
 
@@ -1087,36 +1091,36 @@ public class TestCases_Prudhvi extends testCaseBase {
 	public void validBlankDocRearrangeorderCCApproversigner() throws Exception {
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		documentsScenarios.autofilloff();
+//		documentsScenarios.autofilloff();
 		documentsScenarios.DocScenario();
 		documentsScenarios.Blankloginaccount(doc);
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
 		documentsScenarios.Recipient(2, "Receiver", "ramyasibbala200@outlook.com", " APPROVER ");
 		documentsScenarios.Recipient(3, "Receiver", "prudhvib200@outlook.com", "CC");
-		documentsScenarios.Rearranges(3, 2);
-		documentsScenarios.Rearranges(3, 2);
-		documentsScenarios.Signorder();
-		documentsScenarios.Saveuser();
-		documentsScenarios.SignatureAndFullNameFeilds();
-		documentsScenarios.DradAndDropSigAndFullName(3, 10, 60, 10, 90);
-		documentsScenarios.DradAndDropSigAndFullName(4, 10, 130, 10, 160);
-		documentsScenarios.SubDocScenarios(doc);
-		documentsScenarios.clickSubmit();
-		documentsScenarios.Verifysubmit();
-		documentsScenarios.Viewdocument();
-		documentsScenarios.Blankwithoutsenderautofill();
-		recevierSide.jeevithaOutlooklogin();
-		recevierSide.clickEmail(doc);
-		recevierSide.reviewandSign("Review & sign");
-		recevierSide.signaturefill();
-		recevierSide.clickFinish();
-		recevierSide.Outlooklogin("ramyasibbala200@outlook.com", "Meghana@123");
-		recevierSide.clickEmail(doc);
-		recevierSide.reviewandSign("Review & Approve");
-		recevierSide.signaturefill();
-		recevierSide.clickApprove();
-		recevierSide.Outlooklogin("prudhvib200@outlook.com", "Meghana@123");
-		recevierSide.validateAtCC(doc);
+		documentsScenarios.Rearranges(3, 1);
+		documentsScenarios.Rearranges(2, 3);
+//		documentsScenarios.Signorder();
+//		documentsScenarios.Saveuser();
+//		documentsScenarios.SignatureAndFullNameFeilds();
+//		documentsScenarios.DradAndDropSigAndFullName(3, 10, 60, 10, 90);
+//		documentsScenarios.DradAndDropSigAndFullName(4, 10, 130, 10, 160);
+//		documentsScenarios.SubDocScenarios(doc);
+//		documentsScenarios.clickSubmit();
+//		documentsScenarios.Verifysubmit();
+//		documentsScenarios.Viewdocument();
+//		documentsScenarios.Blankwithoutsenderautofill();
+//		recevierSide.jeevithaOutlooklogin();
+//		recevierSide.clickEmail(doc);
+//		recevierSide.reviewandSign("Review & sign");
+//		recevierSide.signaturefill();
+//		recevierSide.clickFinish();
+//		recevierSide.Outlooklogin("ramyasibbala200@outlook.com", "Meghana@123");
+//		recevierSide.clickEmail(doc);
+//		recevierSide.reviewandSign("Review & Approve");
+//		recevierSide.signaturefill();
+//		recevierSide.clickApprove();
+//		recevierSide.Outlooklogin("prudhvib200@outlook.com", "Meghana@123");
+//		recevierSide.validateAtCC(doc);
 
 	}
 
@@ -1418,6 +1422,8 @@ public class TestCases_Prudhvi extends testCaseBase {
 //	// drag and drop feilds after adding the form template to the company profile
 	@Test(priority = 49)
 	public void contentFeildsCompanyProfile() throws Exception {
+		String feilds[] = { "paragraph", "ImageF...", "videoF...", "HTMLFe...", "division", "Headin...",
+				"single_line_content", "horizontal_line", "Action..." };
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
 //		entities.FormTemplate();
@@ -1431,138 +1437,246 @@ public class TestCases_Prudhvi extends testCaseBase {
 		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
 		documentsScenarios.Saveuser();
 		documentsScenarios.DragContentFeildsCompanyProfile();
-		documentsScenarios.DradAndDropSigAndFullName(2, 10, -20, 10, 10);
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
 		documentsScenarios.SubDocScenarios(doc);
 		documentsScenarios.clickSubmit();
 		documentsScenarios.Verifysubmit();
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		recevierSide.signaturefill();
+		recevierSide.clickFinish();
+		recevierSide.VerifyDocCompleteReceiverEnd();
 	}
 
 	@Test(priority = 50)
 	public void BasicfeildsCompanyProfile() throws Exception {
+		String feilds[] = { "RadioG...", "DateRa...", "Sign", "DateTi...", "YesorN...", "Weekda...", "Single...",
+				"Date", "Docume...", "FixedT...", "list", "Time", "Number", "Multis...", "Phonon...", "Select",
+				"Multil...", "Checkb..." };
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		entities.FormTemplate();
-		entities.CreateFormtemplate(doc);
-		entities.templateBasicFeilds();
-		entities.submit();
-		entities.basicFeilds();
+//		entities.FormTemplate();
+//		entities.CreateFormtemplate(doc);
+//		entities.templateBasicFeilds();
+//		entities.submit();
+//		entities.basicFeilds();
 //		entities.companyProfile();
-//		documentsScenarios.DocScenario();
-//		documentsScenarios.Blankloginaccount(doc);
-//		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
-//		documentsScenarios.Saveuser();
-//		documentsScenarios.DragAndDropBasicFeildsInDocument();
-//		documentsScenarios.DradAndDropSigAndFullName(2, 10, -120, 10, -90);
-//		documentsScenarios.SubDocScenarios(doc);
-//		documentsScenarios.clickSubmit();
-//		documentsScenarios.Verifysubmit();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DragAndDropFeildsInDocument("templateBasicFeilds", feilds);
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.firstOutlooklogin("jeevithapatnana200@outlook.com");
+		recevierSide.clickEmail(docname);
+		recevierSide.reviewandSign("Review & sign");
+		recevierSide.signaturefill();
+		recevierSide.receiverSideBasicFeildsFill(1, 4, 1, 2);
 	}
 
 //
 	@Test(priority = 51)
 	public void AdvancedFieldsCompanyProfile() throws Exception {
+		String feild[] = { "Entity...", "Number", "Aggreg...", "Number...", "Auto I...", "Child ...", "", "Location",
+				"FormulaField", "DataTable", "Currency" };
 		UUID uuid = UUID.randomUUID();
 		String doc = uuid.toString().replaceAll("-", "");
-		entities.FormTemplate();
-		entities.CreateFormtemplate(doc);
-		entities.templateAdvancedFeilds();
-		entities.submit();
-		entities.advancedFeilds();
+//		entities.FormTemplate();
+//		entities.CreateFormtemplate(doc);
+//		entities.templateAdvancedFeilds();
+//		entities.submit();
+//		entities.advancedFeilds();
 //		entities.companyProfile();
-//		documentsScenarios.DocScenario();
-//		documentsScenarios.Blankloginaccount(doc);
-//		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
-//		documentsScenarios.Saveuser();
-////		documentsScenarios.advancedFeilds();
-//		documentsScenarios.DradAndDropSigAndFullName(2,10,-20,10,10);
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DragAndDropFeildsInDocument("templateAdvancedFeilds", feild);
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+	}
+
+	// check
+	//
+	@Test()
+	public void primaryFeilds() throws Exception {
+		String feild[] = { "firstNameEle", "lastNameEle", "phoneEle", "emailEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", "SIGNER");
+		documentsScenarios.Recipient(2, "Receiver", "meghanan180894@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		Thread.sleep(10000);
+		WebElement element = driver.findElement(By.xpath("//div[text()=\"Other Primary Fields\"]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		waitEle(By.xpath("//div[text()=\"Other Primary Fields\"]"));
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		waitEle(By.xpath("//div[text()=\"Other Primary Fields\"]"));
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		waitEle(By.xpath("//div[text()=\"Other Primary Fields\"]"));
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		waitEle(By.xpath("//div[text()=\"Other Primary Fields\"]"));
+		documentsScenarios.DradAndDropSigAndFullName(3, -250, -120, 0, -120);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		waitEle(By.xpath("//div[text()=\"Other Primary Fields\"]"));
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		waitEle(By.xpath("//div[text()=\"Other Primary Fields\"]"));
 //		documentsScenarios.SubDocScenarios(doc);
 //		documentsScenarios.clickSubmit();
 //		documentsScenarios.Verifysubmit();
 	}
+
 //Entity mapping from documents: (Individual entity)(Update after document completion from settings)
-	private String doc;
+	private String docname;
+
 	@Test(priority = 52)
 	public void EntityMappingIndividualEntityUpdateAfterDocumentCompletionFromSettings() throws Exception {
-		UUID uuid = UUID.randomUUID();
-		String doc = uuid.toString().replaceAll("-", "");
-
-		String arr[] = { "1", "06-01-2024 To 07-01-2024", "TESTING.pdf", "PemmaMohan ReddyMeghana", "1,2", "9347618053",
-				"PemmaMohan ReddyMeghana", "Computer science", "1", "Computer science,maths", "List", "06-01-2024",
-				"11:04:09", "01:00", "06-05-2024 00:00:00", "Monday", "YES" };
+//		UUID uuid = UUID.randomUUID();
+//		String docname = uuid.toString().replaceAll("-", "");
+		String docname = "EntityUpdateAfterDocumentCompletionFromSettingsaaabbb";
+		String arr[] = { "prudhvi b", "1", "06-01-2024 To 07-01-2024", "null", "06-05-2024 00:00:00", "YES", "Monday",
+				"PemmaMohan ReddyMeghana", "06-01-2024", "TESTING.pdf", " ", "01:00", "List", "12:12:12", "1",
+				"Computer science,maths", "9347618053", "Computer science", "PemmaMohan ReddyMeghana", "1,1" };
 		entities.entity();
 		entities.ClickCreateEntity();
-		entities.CreateEntityFromScratch(doc, "Start from scratch", "INDIVIDUAL");
+		entities.CreateEntityFromScratch(docname, "Start from scratch", "INDIVIDUAL");
 		entities.addtemplate(" templateBasicFeilds ");
-		documentsScenarios.Updateafterdocumentcompletionfromsettings();
+		documentsScenarios.Updateafterdocumentcompletionfromsettings("1");
 		documentsScenarios.DocScenario();
-		documentsScenarios.Blankloginaccount(doc);
-		documentsScenarios.addContactAtAddrecipient(1, doc, "ramyasibbala200@outlook.com", "ramya", "sibbala",
-				"SIGNER");
+		documentsScenarios.Blankloginaccount(docname);
+		documentsScenarios.addContactAtAddrecipient(1, docname, "prudhvib200@outlook.com", "prudhvi", "b", "SIGNER");
 		documentsScenarios.Saveuser();
-		documentsScenarios.DradAndDropSigAndFullName(2, -250, -150, -250, -110);
-		documentsScenarios.DragAndDropBasicFeildsInDocument();
-		documentsScenarios.SubDocScenarios(doc);
-		documentsScenarios.clickSubmit();
-		documentsScenarios.Verifysubmit();
-		recevierSide.firstOutlooklogin("ramyasibbala200@outlook.com");
-		recevierSide.clickEmail(doc);
-		recevierSide.reviewandSign("Review & sign");
-//		recevierSide.ClickSignatureFeild();
-		recevierSide.signaturefill();
-		recevierSide.receiverSideBasicFeildsFill();
-		driver.get("https://nsui.esigns.io/signin");
-		entities.entity();
-		entities.ClickEntityAction(doc);
-		recevierSide.verifyBasicFeildDataFillInIndividualEntity(arr);
-	}
-//	, dependsOnMethods = {
-//	"EntityMappingIndividualEntityUpdateAfterDocumentCompletionFromSettings" }
-	@Test(priority = 53)
-	public void EntityMappingIndividualEntityUpdateExistedData() throws Exception {	
-		String arr[] = {};
-		documentsScenarios.DocScenario();
-		documentsScenarios.Blankloginaccount(doc);
-		documentsScenarios.addContactAtAddrecipient(1, doc, "prudhvib200@outlook.com", "prudhvi", "b", "SIGNER");
-		documentsScenarios.Saveuser();
-		documentsScenarios.DradAndDropSigAndFullName(2, -250, 150, -250, 180);
-		documentsScenarios.DragAndDropBasicFeildsInDocument();
-		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.DragBasicFeildsCompanyProfile();
+		documentsScenarios.SubDocScenarios(docname);
 		documentsScenarios.clickSubmit();
 		documentsScenarios.Verifysubmit();
 		recevierSide.firstOutlooklogin("prudhvib200@outlook.com");
-		recevierSide.clickEmail(doc);
+		recevierSide.clickEmail(docname);
 		recevierSide.reviewandSign("Review & sign");
-		recevierSide.ClickSignatureFeild();
 		recevierSide.signaturefill();
-		recevierSide.receiverSideBasicFeildsFill();
-		recevierSide.clickFinish();
+		recevierSide.receiverSideBasicFeildsFill(1, 4, 1, 2);
+		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
 		entities.entity();
-		entities.ClickEntityAction(doc);
-		recevierSide.verifyBasicFeildDataFillInIndividualEntity(arr);
+		entities.ClickEntityAction(docname);
+		entities.viewFeilds();
+		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr, 1);
+	}
+
+//	, dependsOnMethods = {
+//	"EntityMappingIndividualEntityUpdateAfterDocumentCompletionFromSettings" }
+	@Test(priority = 53)
+	public void EntityMappingIndividualEntityUpdateExistedData() throws Exception {
+		String docname = "EntityUpdateAfterDocumentCompletionFromSettingsaaa";
+		String arr[] = { "2", "06-02-2024 To 07-01-2024", "null", "06-06-2024 00:00:00", "NO", "Tuesday",
+				"Automation testing", "06-02-2024", "TESTING.pdf", "02:00", "List", "01:01:01", "10", "Physics,maths",
+				"7337060228", "Computer science", "Automation testing", "1,1" };
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(docname);
+		documentsScenarios.Recipient(1, docname, "prudhvib200@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.DragBasicFeildsCompanyProfile();
+		documentsScenarios.SubDocScenarios(docname);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.firstOutlooklogin("prudhvib200@outlook.com");
+		recevierSide.clickEmail(docname);
+		recevierSide.reviewandSign("Review & sign");
+		recevierSide.signaturefill();
+		recevierSide.receiverSideUpdatedBasicFeildsFill();
+		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
+		entities.entity();
+		entities.ClickEntityAction(docname);
+		entities.viewFeilds();
+		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr, 1);
 	}
 
 	//
 	@Test(priority = 54)
 	public void EntityMappingIndividualEntityUpdateafteruserfinishesthedocumentfromsettings() throws Exception {
-		UUID uuid = UUID.randomUUID();
-		String doc = uuid.toString().replaceAll("-", "");
-//		String doc="EntityMappingIndividualEntity11";
-		String arr[] = { "1", "06-01-2024 To 07-01-2024", "TESTING.pdf", "PemmaMohan ReddyMeghana", "1,2", "9347618053",
-				"PemmaMohan ReddyMeghana", "Computer science", "1", "Computer science,maths", "List", "06-01-2024",
-				"11:04:09", "01:00", "06-05-2024 00:00:00", "Monday", "YES" };
+//		UUID uuid = UUID.randomUUID();
+//		String doc = uuid.toString().replaceAll("-", "");
+		String doc = "afteruserfinishesthedocumentfromsettingsstart123";
+		String arr[] = { "1", "06-01-2024 To 07-01-2024", "IMG", "06-05-2024 00:00:00", "YES", "Monday",
+				"PemmaMohan ReddyMeghana", "06-01-2024", "TESTING.pdf", " ", "01:00", "List", "12:12:12", "1",
+				"Computer science,maths", "9347618053", "Computer science", " PemmaMohan ReddyMeghana ", "1,2" };
+//		entities.entity();
+//		entities.ClickCreateEntity();
+//		entities.CreateEntityFromScratch(doc, "Start from scratch", "INDIVIDUAL");
+//		entities.addtemplate(" templateBasicFeilds ");
+//		documentsScenarios.Updateafterdocumentcompletionfromsettings("2");
+//		documentsScenarios.DocScenario();
+//		documentsScenarios.Blankloginaccount(doc);
+////		documentsScenarios.addContactAtAddrecipient(1, doc, "ramyasibbala200@outlook.com", "ramya", "sibbala",
+////				"SIGNER");
+////		documentsScenarios.addContactAtAddrecipient2(2, doc, "prudhvib200@outlook.com", "prudhvi", "b", "SIGNER");
+//		documentsScenarios.Recipient(1, doc, "ramyasibbala200@outlook.com", "SIGNER");
+//		documentsScenarios.Recipient(2, doc, "prudhvib200@outlook.com", "SIGNER");
+//		documentsScenarios.Saveuser();
+//		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+//		documentsScenarios.DragBasicFeildsCompanyProfile();
+//		documentsScenarios.addPageAndClickOnPageTwoInDoc(); 
+//		documentsScenarios.DradAndDropSigAndFullName(3, -250, -120, 0, -120);
+//		documentsScenarios.DragBasicFeildsCompanyProfile();
+//		documentsScenarios.SubDocScenarios(doc);
+//		documentsScenarios.clickSubmit();
+//		documentsScenarios.Verifysubmit();
+//		recevierSide.firstOutlooklogin("ramyasibbala200@outlook.com");
+//		recevierSide.clickEmail(doc);
+//		recevierSide.reviewandSign("Review & sign");
+//		recevierSide.signaturefill();
+//		recevierSide.receiverSideBasicFeildsFill(1,4,1,2);
+//		driver.get("https://nsui.esigns.io/signin");
+//		login.SigninNSUI();
+//		entities.entity();
+//		entities.ClickEntityAction(doc);
+//		entities.viewFeilds();
+//		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr,1);
+		recevierSide.Outlooklogin("prudhvib200@outlook.com", "Meghana@123");
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		documentsScenarios.scrollToCertainPosition(2);
+		recevierSide.signaturefill();
+		recevierSide.receiverSideBasicFeildsFill(2, 8, 3, 2);
+		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
 		entities.entity();
-		entities.ClickCreateEntity();
-		entities.CreateEntityFromScratch(doc, "Start from scratch", "INDIVIDUAL");
-		entities.addtemplate(" templateBasicFeilds ");
-		documentsScenarios.Updateafterdocumentcompletionfromsettings();
+		entities.ClickEntityAction(doc);
+		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr, 2);
+	}
+
+	@Test(priority = 54)
+	public void updateDataAndUpdateEntityafterUserFinishesTheDocumentfromsettings() throws Exception {
+//		UUID uuid = UUID.randomUUID();
+//		String doc = uuid.toString().replaceAll("-", "");
+		String doc = "afteruserfinishesthedocumentfromsettings";
+		String arr[] = { "1", "06-01-2024 To 07-01-2024", " ", "06-05-2024 00:00:00", "YES", "Monday",
+				"PemmaMohan ReddyMeghana", "06-01-2024", "TESTING.pdf", " ", "01:00", "List", "11:04:09", "1",
+				"Computer science,maths", "9347618053", "Computer science", "PemmaMohan ReddyMeghana", "1,2" };
+
+		documentsScenarios.Updateafterdocumentcompletionfromsettings("2");
 		documentsScenarios.DocScenario();
 		documentsScenarios.Blankloginaccount(doc);
-		documentsScenarios.addContactAtAddrecipient(1, doc, "ramyasibbala200@outlook.com", "ramya", "sibbala",
-				"SIGNER");
-		documentsScenarios.addContactAtAddrecipient(2, doc, "ramyas200@outlook.com", "ramya", "sibbala", "SIGNER");
+		documentsScenarios.Recipient(1, doc, "ramyasibbala200@outlook.com", "SIGNER");
+		documentsScenarios.Recipient(2, doc, "prudhvib200@outlook.com", "SIGNER");
 		documentsScenarios.Saveuser();
-		documentsScenarios.DradAndDropSigAndFullName(2, -250, -150, -250, -110);
-		documentsScenarios.DragAndDropBasicFeildsInDocument();
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.DragBasicFeildsCompanyProfile();
+		documentsScenarios.addPageAndClickOnPageTwoInDoc();
+		documentsScenarios.DradAndDropSigAndFullName(3, -250, -120, 0, -120);
+		documentsScenarios.DragBasicFeildsCompanyProfile();
 		documentsScenarios.SubDocScenarios(doc);
 		documentsScenarios.clickSubmit();
 		documentsScenarios.Verifysubmit();
@@ -1570,22 +1684,314 @@ public class TestCases_Prudhvi extends testCaseBase {
 		recevierSide.clickEmail(doc);
 		recevierSide.reviewandSign("Review & sign");
 		recevierSide.signaturefill();
-		recevierSide.receiverSideBasicFeildsFill();
+		recevierSide.receiverSideUpdatedBasicFeildsFill();
 		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
 		entities.entity();
-		entities.ClickEntityAction("individualEntity");
-		recevierSide.verifyBasicFeildDataFillInIndividualEntity(arr);
+		entities.ClickEntityAction(doc);
+		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr, 1);
 		recevierSide.Outlooklogin("ramyas200@outlook.com", "Meghana@123");
 		recevierSide.clickEmail(doc);
 		recevierSide.reviewandSign("Review & sign");
 		recevierSide.signaturefill();
-		recevierSide.receiverSideBasicFeildsFill();
+		recevierSide.receiverSideUpdatedBasicFeildsFill();
 		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
 		entities.entity();
 		entities.ClickEntityAction(doc);
-		recevierSide.verifyBasicFeildDataFillInIndividualEntity(arr);
+		entities.viewFeilds();
+		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr, 2);
 	}
 
+	@Test
+	public void EntityMappingIndividualEntityneverUpdate() throws Exception {
+		String docname = "EntityMappingIndividualEntityneverUpdate1";
+		String arr[] = { "1", "06-01-2024 To 07-01-2024", "IMG", "06-05-2024 00:00:00", "YES", "Monday",
+				"PemmaMohan ReddyMeghana", "06-01-2024", "TESTING.pdf", " ", "01:00", "List", "12:12:12", "1",
+				"Computer science,maths", "9347618053", "Computer science", " PemmaMohan ReddyMeghana ", "1,2" };
+		entities.entity();
+		entities.ClickCreateEntity();
+		entities.CreateEntityFromScratch(docname, "Start from scratch", "INDIVIDUAL");
+		entities.addtemplate(" templateBasicFeilds ");
+		documentsScenarios.Updateafterdocumentcompletionfromsettings("3");
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(docname);
+		documentsScenarios.addContactAtAddrecipient(1, docname, "prudhvib200@outlook.com", "prudhvi", "b", "SIGNER");
+//		documentsScenarios.Recipient(1, docname, "prudhvib200@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.DragBasicFeildsCompanyProfile();
+		documentsScenarios.SubDocScenarios(docname);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.firstOutlooklogin("prudhvib200@outlook.com");
+		recevierSide.clickEmail(docname);
+		recevierSide.reviewandSign("Review & sign");
+		recevierSide.signaturefill();
+		recevierSide.receiverSideBasicFeildsFill(1, 4, 1, 2);
+		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
+		entities.entity();
+		entities.ClickEntityAction(docname);
+		entities.viewFeilds();
+		recevierSide.verifyNeverUpdate(arr, 1);
+	}
+
+	@Test
+	public void UpdateDataEntityMappingIndividualEntityneverUpdate() throws Exception {
+		String docname = "EntityMappingIndividualEntityneverUpdate1";
+		String arr[] = { "1", "06-02-2024 To 07-01-2024", " ", "06-05-2024 00:00:00", "YES", "Monday",
+				"PemmaMohan ReddyMeghana", "06-01-2024", "TESTING.pdf", " ", "01:00", "List", "11:04:09", "1",
+				"Computer science,maths", "9347618053", "Computer science", "PemmaMohan ReddyMeghana", "1,2" };
+		documentsScenarios.Updateafterdocumentcompletionfromsettings("3");
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(docname);
+		documentsScenarios.Recipient(1, docname, "prudhvib200@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+		documentsScenarios.DragBasicFeildsCompanyProfile();
+		documentsScenarios.SubDocScenarios(docname);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.firstOutlooklogin("prudhvib200@outlook.com");
+		recevierSide.clickEmail(docname);
+		recevierSide.reviewandSign("Review & sign");
+		recevierSide.signaturefill();
+		recevierSide.receiverSideUpdatedBasicFeildsFill();
+		driver.get("https://nsui.esigns.io/signin");
+		login.SigninNSUI();
+		entities.entity();
+		entities.ClickEntityAction(docname);
+		recevierSide.verifyNeverUpdate(arr, 1);
+	}
+
+	@Test
+	public void BlankDocWithEnforcementAllContentFeilds() throws Exception {
+		String feild[] = { "mySignatureEle", "headingEle", "paragraphEle", "tableEle", "myInitialEle",
+				"horizontalLineEle" };
+//		UUID uuid = UUID.randomUUID();
+//		String doc = uuid.toString().replaceAll("-", "");
+		String doc = "Content Feilds";
+//		documentsScenarios.autofilloff();
+//		documentsScenarios.DocScenario();
+//		documentsScenarios.Blankloginaccount(doc);
+//		documentsScenarios.Recipient(1,"Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+//		documentsScenarios.Saveuser();
+//		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+//		documentsScenarios.DradAndDropSigAndFullName(2, -250, -120, 0, -120);
+//		documentsScenarios.SubDocScenarios(doc);
+//		documentsScenarios.clickSubmit();
+//		documentsScenarios.Verifysubmit();
+//		documentsScenarios.Viewdocument();
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		recevierSide.signaturefill();
+		recevierSide.clickFinish();
+		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	@Test
+	public void BlankDocWithEnforcementAllFillabelFeilds() throws Exception {
+		String feild[] = { "requestEle", "dateEle", "dropdownEle", "numberEle", "yesOrNoEle", "multiLineTextEle",
+				"multiSlectedEle", "formulaEle", "currencyEle", "addDateTimeEle", "addDateRangeEle", "addTimeEle",
+				"addListEle", "addTimeRangeEle", "addFixedTimeEle", "weekdaysEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+//		documentsScenarios.autofilloff();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.fillableFieldsDragAndDrop();
+		documentsScenarios.FillRequestDocument();
+		documentsScenarios.selectRecipientForDragAndDrop(2);
+		documentsScenarios.addPageAndClickOnPageTwoInDoc();
+		documentsScenarios.fillableFieldsDragAndDrop();
+		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		documentsScenarios.Viewdocument();
+//		documentsScenarios.fillFillabelFeilds();
+//		recevierSide.jeevithaOutlooklogin();
+//		recevierSide.clickEmail(doc);
+//		recevierSide.reviewandSign("Review & sign");
+//		documentsScenarios.fillEssentialFeilds(2);
+//		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	// 1
+	@Test()
+	public void BlankDocWithEnforcementAutoFillOnWithoutSenderFields() throws Exception {
+		String feild[] = { "signatureEle", "initialEle", "fullNameEle", "dateSingedEle", "companyEle", "titleEle",
+				"singleLineTextEle", "checkboxEle", "addressEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+		documentsScenarios.autofillon();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.selectRecipientForDragAndDrop(2);
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		documentsScenarios.fillEssentialFeilds(1);
+		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	// 2
+	@Test()
+	public void BlankDocWithEnforcementAutoFillOnWithSenderFielsNotFilled() throws Exception {
+		String feild[] = { "signatureEle", "initialEle", "fullNameEle", "dateSingedEle", "companyEle", "titleEle",
+				"singleLineTextEle", "checkboxEle", "addressEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+		documentsScenarios.autofillon();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.selectRecipientForDragAndDrop(2);
+		documentsScenarios.addPageAndClickOnPageTwoInDoc();
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.SendDocumentInDocument();
+		documentsScenarios.sendDocument();
+		documentsScenarios.SubDoc(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		documentsScenarios.Viewdocument();
+		documentsScenarios.fillEssentialFeilds(1);
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		documentsScenarios.fillEssentialFeilds(2);
+		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	@Test()
+	public void BlankDocWithEnforcementAutoFillOnWithSenderFielsAllFilled() throws Exception {
+		String feild[] = { "signatureEle", "initialEle", "fullNameEle", "dateSingedEle", "companyEle", "titleEle",
+				"singleLineTextEle", "checkboxEle", "addressEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+//		documentsScenarios.autofillon();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.fillEssentialFieldsInDocBeforeSendDoc(1);
+		documentsScenarios.selectRecipientForDragAndDrop(2);
+		documentsScenarios.addPageAndClickOnPageTwoInDoc();
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.SendDocumentInDocument();
+		documentsScenarios.sendDocument();
+		documentsScenarios.SubDoc(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		documentsScenarios.fillEssentialFeilds(2);
+		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	// 4
+	@Test()
+	public void BlankDocWithEnforcementAutoFillOffWithoutSenderFields() throws Exception {
+		String feild[] = { "signatureEle", "initialEle", "fullNameEle", "dateSingedEle", "companyEle", "titleEle",
+				"singleLineTextEle", "checkboxEle", "addressEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+		documentsScenarios.autofilloff();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.selectRecipientForDragAndDrop(2);
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		documentsScenarios.fillEssentialFeilds(1);
+		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	// 5
+	@Test
+	public void BlankDocWithEnforcementAutofillOffWithSenderFielsNotFilled() throws Exception {
+		String feild[] = { "signatureEle", "initialEle", "fullNameEle", "dateSingedEle", "companyEle", "titleEle",
+				"singleLineTextEle", "checkboxEle", "addressEle" };
+		UUID uuid = UUID.randomUUID();
+		String doc = uuid.toString().replaceAll("-", "");
+		documentsScenarios.autofilloff();
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(doc);
+		documentsScenarios.Recipient(1, "Receiver", "jeevithapatnana200@outlook.com", " SIGNER ");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.addPageAndClickOnPageTwoInDoc();
+		documentsScenarios.selectRecipientForDragAndDrop(2);
+		documentsScenarios.DragAndDropFeildsInDocumentUsingId(feild);
+		documentsScenarios.SubDocScenarios(doc);
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		documentsScenarios.Viewdocument();
+		documentsScenarios.fillEssentialFeilds(1);
+		recevierSide.jeevithaOutlooklogin();
+		recevierSide.clickEmail(doc);
+		recevierSide.reviewandSign("Review & sign");
+		documentsScenarios.fillEssentialFeilds(2);
+		recevierSide.VerifyDocCompleteReceiverEnd();
+	}
+
+	@Test
+	public void entityMappingUpdateWithParentIndividualEntity() throws Exception {
+		String docname = "entityMappingUpdateWithParentIndividualEntity";
+		String EntityVariable = "Entity-" + docname;
+//		entities.entity();
+//		entities.ClickCreateEntity();
+//		entities.CreateEntityFromScratch(docname, "Start from scratch", "GENERAL");
+//		entities.addtemplate(" templateBasicFeilds ");
+		documentsScenarios.DocScenario();
+		documentsScenarios.Blankloginaccount(docname);
+		documentsScenarios.Recipient(1, "Receiver", "prudhvib200@outlook.com", "SIGNER");
+		documentsScenarios.Saveuser();
+		documentsScenarios.DradAndDropSingleline(1, -300, -120, "Entity", docname);
+		documentsScenarios.updateWithParentBadicFieldsLoop("entityMappingUpdateWithParentIndividualEntity", "templateBasicFeilds");
+		documentsScenarios.DradAndDropSigAndFullName(2, 300, -20, 300, -70);
+		documentsScenarios.Saveuser();
+		documentsScenarios.clickSubmit();
+		documentsScenarios.Verifysubmit();
+		documentsScenarios.Viewdocument();
+		recevierSide.receiverSideBasicFeildsFill(4,1,1,2);
+		recevierSide.firstOutlooklogin("prudhvib200@outlook.com");
+		recevierSide.clickEmail(docname);
+		recevierSide.reviewandSign("Review & sign");
+
+	}
+
+	@Test
+	public void entityBasicFeilds() throws Exception {
+		String doc = "afteruserfinishesthedocumentfromsettings";
+		String arr[] = { "1", "06-01-2024 To 07-01-2024", " ", "06-05-2024 00:00:00", "YES", "Monday",
+				"PemmaMohan ReddyMeghana", "06-01-2024", "TESTING.pdf", " ", "01:00", "List", "11:04:09", "1",
+				"Computer science,maths", "9347618053", "Computer science", "PemmaMohan ReddyMeghana", "1,2" };
+		login.SigninNSUI();
+		entities.entity();
+		entities.ClickEntityAction(doc);
+		entities.viewFeilds();
+		recevierSide.verifyBasicFieldDataFillInIndividualEntity(arr, 1);
+	}
 //	@AfterMethod
 //	public void quit() {
 //		driver.quit();

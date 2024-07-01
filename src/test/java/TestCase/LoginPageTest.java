@@ -49,13 +49,13 @@ public class LoginPageTest extends testCaseBase {
 //
 //	}
 //
-//	@Test
-//
-//	public void verifyloginwithValidCredentials() throws InterruptedException {
-//		login.Signin();
-//		login.VerifyLoginSucess();
-//
-//	}
+	@Test
+
+	public void verifyloginwithValidCredentials() throws InterruptedException {
+		login.SigninNSUI();
+		login.VerifyLoginSucess();
+
+	}
 //
 //	@Test
 //	public void Document() throws InterruptedException {

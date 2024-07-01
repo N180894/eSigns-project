@@ -19,7 +19,6 @@ public void initialize() {
 }
 @Test
 public void VerifyLoginFunctionalityWithValidCredantials() {
-	setup();
 	login = new Login(driver);
 
 }
